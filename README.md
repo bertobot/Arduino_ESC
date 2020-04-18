@@ -1,39 +1,22 @@
 # Arduino A2212 Motor interface
 
 ```c++
-// first time use / calibrate
 #include <A2212_Motor.h>
 
 // connect signal to pin 9
 A2212_Motor motor(9);
 
 void setup() {
-    motor.calibrate();
-
-    // plug the power in, wait for 3 beeps
-    // remove power
-    // plug
-}
-
-void loop() {
-}
-```
-
-```c++
-#include <A2212_Motor.h>
-
-// connect signal to pin 9
-A2212_Motor motor(9);
-
-void setup() {
+    motor.arm();
 }
 
 void use_1() {
-    // set the throttle to 50 percent
+    // set the throttle to 50 percent, which is idle
     motor.throttle(50);
 }
 
 void use_2() {
+    // if your using floating point values, here's a convenience method
     motor.throttlef(0.5);
 }
 

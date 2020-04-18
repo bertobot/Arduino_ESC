@@ -9,14 +9,10 @@ A2212_Motor::Motor(uint8_t pin=9, uint8_t tmin=544, uint8_t tmax=2400) {
 A2212_Motor::~A2212_Motor() { }
 
 void A2212_Motor::arm(uint8_t dur) {
-    throttle(1);
+    throttle(100);
     delay(dur);
-    throttle(0);
+    throttle(50);
     delay(dur);
-}
-
-void A2212_Motor::calibrate() {
-    arm(30000);
 }
 
 void A2212_Motor::throttle(uint8_t p) {

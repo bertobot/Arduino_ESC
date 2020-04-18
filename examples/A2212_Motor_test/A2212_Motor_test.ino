@@ -4,14 +4,16 @@
 A2212_Motor motor(9);
 
 void setup() {
+    motor.arm();
 }
 
 void use_1() {
-    // set the throttle to 50 percent
+    // set the throttle to 50 percent, which is idle
     motor.throttle(50);
 }
 
 void use_2() {
+    // if your using floating point values, here's a convenience method
     motor.throttlef(0.5);
 }
 
