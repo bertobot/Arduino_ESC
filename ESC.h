@@ -1,5 +1,5 @@
-#ifndef __A2212_Motor_h_
-#define __A2212_Motor_h_
+#ifndef __ESC_h_
+#define __ESC_h_
 
 #if ARDUINO >= 100
     #include "Arduino.h"
@@ -9,14 +9,14 @@
 
 #include <Servo.h>
 
-class A2212_Motor {
+class ESC {
 private:
     Servo mESC;
     uint8_t mMin, mMax;
 
 public:
-    Motor(uint8_t pin=9, uint8_t tmin=544, uint8_t tmax=2400);
-    virtual ~Motor();
+    ESC(uint8_t pin=9, uint8_t tmin=544, uint8_t tmax=2400);
+    virtual ~ESC();
 
     void arm(uint8_t dur=3000);
     void throttle(uint8_t p);

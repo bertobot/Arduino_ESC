@@ -1,10 +1,10 @@
-# Arduino A2212 Motor interface
+# Arduino ESC Interface
 
 ```c++
-#include <A2212_Motor.h>
+#include <ESC.h>
 
 // connect signal to pin 9
-A2212_Motor motor(9);
+ESC motor(9);
 
 void setup() {
     motor.arm();
@@ -33,3 +33,4 @@ void loop() {
     //use_3();
 }
 ```
+
