@@ -1,6 +1,6 @@
 #include "ESC.h"
 
-ESC::ESC(uint8_t pin=9, uint8_t tmin=544, uint8_t tmax=2400) {
+ESC::ESC(int pin, int tmin, int tmax) {
     mESC.attach(pin);
     mMin = tmin;
     mMax = tmax;
@@ -8,19 +8,17 @@ ESC::ESC(uint8_t pin=9, uint8_t tmin=544, uint8_t tmax=2400) {
 
 ESC::~ESC() { }
 
-void ESC::arm(uint8_t dur) {
-    throttle(180);
-    delay(dur);
-    throttle(0);
+void ESC::arm(int dur) {
+    throttle(50);
     delay(dur);
 }
 
-void ESC::throttle(uint8_t p) {
-    mESC.write(map(p, 0, 180, mMin, mMax));
+void ESC::throttle(int p) {
+    mESC.writeMicroseconds(map(p, 0, 100, mMin, mMax));
 }
 
 void ESC::throttlef(float percent) {
-    uint8_t v = int((mMin + (mMax - mMin)) * percent);
+    int v = int((mMin + (mMax - mMin)) * percent);
     mESC.write(v);
 }
 

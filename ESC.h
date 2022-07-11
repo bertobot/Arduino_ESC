@@ -12,14 +12,14 @@
 class ESC {
 private:
     Servo mESC;
-    uint8_t mMin, mMax;
+    int mMin, mMax;
 
 public:
-    ESC(uint8_t pin=9, uint8_t tmin=544, uint8_t tmax=2400);
+    ESC(int pin=9, int tmin=1000, int tmax=2000);
     virtual ~ESC();
 
-    void arm(uint8_t dur=3000);
-    void throttle(uint8_t p);
+    void arm(int dur=3100);
+    void throttle(int p);
     void throttlef(float percent);
 
 };

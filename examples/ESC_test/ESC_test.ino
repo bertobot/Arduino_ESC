@@ -1,15 +1,15 @@
 #include <ESC.h>
 
-// connect signal to pin 9
-ESC motor(9);
+ESC *motor;
 
 void setup() {
-    motor.arm();
+    motor = new ESC(9); // connect ESC to pin 9
+    motor.arm(3100);    // arms the ESC, waiting a little over 3s to arm
 }
 
 void use_1() {
-    // set the throttle to 50 (180 / 2 = 90) percent
-    motor.throttle(90);
+    // set the throttle to 50%
+    motor.throttle(50);
 }
 
 void use_2() {
